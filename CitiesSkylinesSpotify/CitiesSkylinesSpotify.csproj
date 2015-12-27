@@ -62,7 +62,6 @@
     <Compile Include="SpotifyMod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpotifyTitlePanel.cs" />
-    <Compile Include="SpotifyUI.cs" />
     <Compile Include="SpotifyUIPanel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

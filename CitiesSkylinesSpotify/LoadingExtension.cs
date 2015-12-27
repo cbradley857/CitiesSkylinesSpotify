@@ -41,47 +41,6 @@ namespace CitiesSkylinesSpotify
             _view = UIView.GetAView();
 
             SetUpUI();
-
-            /*
-            ShowButtons = false;
-
-            spotifyControls = new SpotifyAPI();
-
-            UIButton button = (UIButton)view.AddUIComponent(typeof(UIButton));
-            // Set the text to show on the button.
-            button.text = "Spotify";
-
-            // Set the button dimensions.
-            button.width = 100;
-            button.height = 30;
-
-            // Style the button to look like a menu button.
-            button.normalBgSprite = "ButtonMenu";
-            button.disabledBgSprite = "ButtonMenuDisabled";
-            button.hoveredBgSprite = "ButtonMenuHovered";
-            button.focusedBgSprite = "ButtonMenuFocused";
-            button.pressedBgSprite = "ButtonMenuPressed";
-            button.textColor = new Color32(255, 255, 255, 255);
-            button.disabledTextColor = new Color32(7, 7, 7, 255);
-            button.hoveredTextColor = new Color32(7, 132, 255, 255);
-            button.focusedTextColor = new Color32(255, 255, 255, 255);
-            button.pressedTextColor = new Color32(30, 30, 44, 255);
-
-            // Enable button sounds.
-            button.playAudioEvents = true;
-
-            // Place the button.
-            button.transformPosition = new Vector3(-1.70f, 0.90f);
-
-            // Respond to button click.
-            button.eventClick += ToggleControls;
-
-            // Add panel (Invisible initially)
-            UIComponent panel = view.AddUIComponent(typeof(SpotifyUI));
-
-            Vector3 relativePosition = button.transformPosition;
-            relativePosition.x += 0.1f;
-            */
         }
 
         public override void OnLevelUnloading()
@@ -151,28 +110,6 @@ namespace CitiesSkylinesSpotify
 
             _spotifyPanel.isVisible = bPanelVisible;
         }
-
-        /*
-        private void ToggleControls(UIComponent component, UIMouseEventParameter eventParam)
-        {
-            //DebugOutputPanel.AddMessage(PluginManager.MessageType.Message, "Button Pressed...");
-            //spotifyControls.PausePlay();
-            SpotifyUI ui = (SpotifyUI)view.GetComponent(typeof(SpotifyUI));
-
-            if (ShowButtons)
-            {
-                // Hide Buttons Panel
-                ui.Hide();
-            }
-            else
-            {
-                // Show Buttons Panel
-                ui.Show();
-            }
-
-            ShowButtons = !ShowButtons;
-        }
-         */
 
         private void LogMessage(string message)
         {

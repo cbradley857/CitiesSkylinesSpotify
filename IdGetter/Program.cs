@@ -11,7 +11,7 @@ namespace IdGetter
     {
         static void Main(string[] args)
         {
-            Process[] SpotifyProcesses = Process.GetProcessesByName("spotify");//.Where(w => w.MainWindowTitle != string.Empty).FirstOrDefault();
+            Process[] SpotifyProcesses = Process.GetProcessesByName("spotify");
 
             int? appId = null;
             IntPtr windowHandle = new IntPtr();
