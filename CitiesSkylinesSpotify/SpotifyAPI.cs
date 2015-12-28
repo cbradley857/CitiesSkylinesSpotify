@@ -9,6 +9,7 @@ using ColossalFramework.Plugins;
 using Message = System.Windows.Forms.Message;
 using Timer = System.Threading.Timer;
 using System.IO;
+using System.Reflection;
 
 namespace CitiesSkylinesSpotify
 {
@@ -115,7 +116,8 @@ namespace CitiesSkylinesSpotify
             
             GetProcessId();
             DebugOutputPanel.AddMessage(PluginManager.MessageType.Message, "Output: " + output);
-
+            Console.WriteLine("Output: " + output);
+            Console.Read();
             string[] split = output.Split(':');
             isOpen = bool.Parse(split[0]);
 
@@ -159,7 +161,44 @@ namespace CitiesSkylinesSpotify
 
         private void GetProcessId()
         {
-            string targetExe = Directory.GetCurrentDirectory() + @"\Files\Mods\SpotiMod\IdGetter.exe";
+            //string targetExe = Directory.GetCurrentDirectory() + @"\Files\Mods\SpotiMod\IdGetter.exe";
+            /*string targetExe = Assembly.GetExecutingAssembly().CodeBase;
+            targetExe = string.Format("{0}/IdGetter.exe", targetExe);
+            targetExe = targetExe.Remove(0, 8);
+            DebugOutputPanel.AddMessage(PluginManager.MessageType.Message, "Initial Path: " + targetExe);
+            */
+
+            /*
+            string codeBase = Assembly.GetExecutingAssembly().CodeBase;
+            DebugOutputPanel.AddMessage(PluginManager.MessageType.Message, "Initial Path: " + codeBase);
+            UriBuilder uri = new UriBuilder(codeBase);
+            string path = Uri.UnescapeDataString(uri.Path);
+            string targetExe = Path.GetFullPath(new Uri(Path.Combine(Path.GetDirectoryName(path), "../../Workshop/content/255710/585752984")).AbsolutePath);//Path.GetDirectoryName(path) + "/IdGetter.exe";
+            DebugOutputPanel.AddMessage(PluginManager.MessageType.Message, "Final Path: " + targetExe);
+            */
+
+
+            string targetExe = Path.GetFullPath(new Uri(Path.Combine(Path.GetDirectoryName(Directory.GetCurrentDirectory()), "../Workshop/content/255710/585752984/IdGetter.exe")).AbsolutePath);//Path.GetDirectoryName(path) + "/IdGetter.exe";
+            targetExe = Uri.UnescapeDataString(targetExe);
+            DebugOutputPanel.AddMessage(PluginManager.MessageType.Message, "Final Path: " + targetExe);
+            
+            if (!File.Exists(targetExe))
+            {
+                // TODO: Replace this code
+                targetExe = @"C:\Users\Connor\AppData\Local\Colossal Order\Cities_Skylines\Addons\Mods\IdGetter.exe";
+
+                if (!File.Exists(targetExe))
+                {
+                    DebugOutputPanel.AddMessage(PluginManager.MessageType.Message, "GETTING EXE UNSUCCESSFULL");
+                    return;
+                }
+            }
+
+            /*
+            DebugOutputPanel.AddMessage(PluginManager.MessageType.Message, "Path: " + targetExe);
+            Console.WriteLine(targetExe);
+            targetExe = Directory.GetCurrentDirectory() + @"\Files\Mods\SpotiMod\IdGetter.exe";
+            */
 
             var proc = new Process();
             proc.StartInfo.FileName = targetExe;
