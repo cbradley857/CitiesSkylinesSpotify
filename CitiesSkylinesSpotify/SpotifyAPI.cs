@@ -185,8 +185,9 @@ namespace CitiesSkylinesSpotify
             if (!File.Exists(targetExe))
             {
                 // TODO: Replace this code
-                targetExe = @"C:\Users\Connor\AppData\Local\Colossal Order\Cities_Skylines\Addons\Mods\IdGetter.exe";
-
+                targetExe = Directory.GetCurrentDirectory() + @"\Files\Mods\SpotiMod\IdGetter.exe";
+                DebugOutputPanel.AddMessage(PluginManager.MessageType.Message, "Using Alternative Path: " + targetExe);
+            
                 if (!File.Exists(targetExe))
                 {
                     DebugOutputPanel.AddMessage(PluginManager.MessageType.Message, "GETTING EXE UNSUCCESSFULL");

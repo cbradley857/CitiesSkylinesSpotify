@@ -98,7 +98,7 @@ namespace CitiesSkylinesSpotify
             _spotifyButton.playAudioEvents = true;
 
             // Place the button.
-            _spotifyButton.transformPosition = new Vector3(-1.80f, 0.85f);
+            _spotifyButton.transformPosition = new Vector3(-1.70f, 0.85f);
 
             // Respond to button click.
             _spotifyButton.eventClick += button_eventClick;

@@ -22,17 +22,17 @@ namespace CitiesSkylinesSpotify
             _titleText = AddUIComponent<UILabel>();
             _dragHandle = AddUIComponent<UIDragHandle>();
 
-            height = 50;
-            width = 550;
+            height = 40;
+            width = 160;
         }
 
         public override void Start()
         {
             base.Start();
 
-            _titleText.relativePosition = new Vector3(125, 0);
+            _titleText.relativePosition = new Vector3(10, 10);
             _titleText.text = "Spotify";
-            _titleText.textScale = 1.5f;
+            _titleText.textScale = 1f;
 
             _dragHandle.width = width - 50;
             _dragHandle.height = height;
